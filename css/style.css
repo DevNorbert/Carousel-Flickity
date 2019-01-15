@@ -21,4 +21,28 @@
   text-shadow: 0 0 5px #333;
 }
 
+.button-reset {
+  position: absolute;
+  left: 0px;
+  top: 0;
+}
+
+.button-reset .button {
+  color: white;
+  font-weight: 500;
+  font-size: 21px;
+  text-transform: uppercase;
+  background-color: #2c3e50;
+  padding: 5px 10px;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.progress-bar {
+  height: 20px;
+  width: 0;
+  background: #333;
+}
+
 /*# sourceMappingURL=style.css.map */

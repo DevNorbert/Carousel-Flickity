@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Korzystanie z pluginów</title>
     <!-- Normalize.css -->
-    <link rel="stylesheet" href="vendor/normalize/normalize.css" type="text/css"> 
+    <link rel="stylesheet" href="vendor/normalize/normalize.css" type="text/css">
     <!-- Flickity -->
     <link rel="stylesheet" href="vendor/flickity/flickity.min.css">
     <!-- Style -->
@@ -14,19 +14,47 @@
 </head>
 <body>
     <div class="main-carousel">
-        <div class="carousel-cell">
-            <img src="images/carousel-image1.jpg" alt="" class="carousel-image">
+        <!-- Carousel Item -->
+        <div class="carousel-cell" id="carousel-cell1" style="background-image: url('images/carousel-image1.jpg'); background-size: cover;">
+            <div class="container">
+                <h2>Slider 1</h2>
+            </div>
         </div>
-        <div class="carousel-cell">
-            <img src="images/carousel-image2.jpg" alt="" class="carousel-image">
+        <!-- Carousel Item -->
+        <div class="carousel-cell" id="carousel-cell2" style="background-image: url('images/carousel-image2.jpg'); background-size: cover;">
+            <div class="container">
+                <h2>Slider 2</h2>
+            </div>
         </div>
-        <div class="carousel-cell"></div>
+        <!-- Carousel Item -->
+        <div class="carousel-cell" id="carousel-cell3" style="background-image: url('images/carousel-image3.jpg'); background-size: cover;">
+            <div class="container">
+                <h2>Slider 3</h2>
+            </div>
+        </div>
+        <!-- Carousel Item -->
+        <div class="carousel-cell" id="carousel-cell4" style="background-image: url('images/carousel-image4.jpg'); background-size: cover;">
+            <div class="container">
+                <h2>Slider 4</h2>
+            </div>
+        </div>
+        <!-- Carousel Item -->
+        <div class="carousel-cell" id="carousel-cell5" style="background-image: url('images/carousel-image5.jpg'); background-size: cover;">
+            <div class="container">
+                <h2>Slider 5</h2>
+            </div>
+        </div>
     </div>
-
-
-
-
-<script src="vendor/flickity/flickity.pkgd.min.js"></script>
-<script src="js/script.js"></script>
+    <!-- Progress bar -->
+    <div class="progress-bar"></div>
+    <!-- Button Reset -->
+    <div class="button-reset">
+        <button class="button" data-selector="#carousel-cell1">reset</button>
+    </div>
+    <!-- Flickity Script -->
+    <script src="vendor/flickity/flickity.pkgd.min.js"></script>
+    <script src="vendor/flickity/flickity.hash.js"></script>
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
 </body>
 </html>
