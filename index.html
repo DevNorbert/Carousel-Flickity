@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,49 +13,98 @@
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
+
 <body>
-    <div class="main-carousel">
-        <!-- Carousel Item -->
+    <script id="template-slider" type="x-tmpl-mustache">
+        <div class="main-carousel">
+                {{{slider}}}
+                </div>
+            </script>
+    <!-- <div class="main-carousel">
         <div class="carousel-cell" id="carousel-cell1" style="background-image: url('images/carousel-image1.jpg'); background-size: cover;">
             <div class="container">
                 <h2>Slider 1</h2>
             </div>
         </div>
-        <!-- Carousel Item -->
+
         <div class="carousel-cell" id="carousel-cell2" style="background-image: url('images/carousel-image2.jpg'); background-size: cover;">
             <div class="container">
                 <h2>Slider 2</h2>
             </div>
         </div>
-        <!-- Carousel Item -->
+       
         <div class="carousel-cell" id="carousel-cell3" style="background-image: url('images/carousel-image3.jpg'); background-size: cover;">
             <div class="container">
                 <h2>Slider 3</h2>
             </div>
         </div>
-        <!-- Carousel Item -->
+        
         <div class="carousel-cell" id="carousel-cell4" style="background-image: url('images/carousel-image4.jpg'); background-size: cover;">
             <div class="container">
                 <h2>Slider 4</h2>
             </div>
         </div>
-        <!-- Carousel Item -->
+        
         <div class="carousel-cell" id="carousel-cell5" style="background-image: url('images/carousel-image5.jpg'); background-size: cover;">
             <div class="container">
                 <h2>Slider 5</h2>
             </div>
         </div>
-    </div>
-    <!-- Progress bar -->
-    <div class="progress-bar"></div>
+    </div> -->
+    <div id="results"></div>
     <!-- Button Reset -->
     <div class="button-reset">
         <button class="button" data-selector="#carousel-cell1">reset</button>
     </div>
+    <!-- Progress bar -->
+    <div class="progress-bar"></div>
+    <!-- Objects Mustache -->
+    <script>
+        var sliderData = [
+            {
+                image: 'images/carousel-image1.jpg',
+                title: 'Slider 1',
+                description: 'Lorem ipsum.'
+            },
+            {
+                image: 'images/carousel-image2.jpg',
+                title: 'Slider 2',
+                description: 'Lorem ipsum.'
+            },
+            {
+                image: 'images/carousel-image3.jpg',
+                title: 'Slider 3',
+                description: 'Lorem ipsum.'
+            },
+            {
+                image: 'images/carousel-image4.jpg',
+                title: 'Slider 4',
+                description: 'Lorem ipsum.'
+            },
+            {
+                image: 'images/carousel-image5.jpg',
+                title: 'Slider 5',
+                description: 'Lorem ipsum.'
+            }
+        ]   
+    </script>
+    <script id="template-carousel" type="x-tmpl-mustache">
+        <div class="carousel-cell" id="carousel-cell1" style="background-image: url('{{ image }}'); background-size: cover;">
+                <div class="container">
+                    <h2>{{ title }}</h2>
+                    {{ description }}
+                </div>
+            </div>
+
+           
+    </script>
     <!-- Flickity Script -->
     <script src="vendor/flickity/flickity.pkgd.min.js"></script>
     <script src="vendor/flickity/flickity.hash.js"></script>
+    <!-- Mustache -->
+    <script src="vendor/mustache/mustache.js"></script>
     <!-- Main Script -->
     <script src="js/script.js"></script>
 </body>
+
 </html>

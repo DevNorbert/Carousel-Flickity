@@ -1,3 +1,23 @@
+// Mustache 
+(function(){ 
+var templateSlider = document.getElementById('template-slider').innerHTML;
+var templateCarousel = document.getElementById('template-carousel').innerHTML;
+
+Mustache.parse(templateCarousel);
+
+var generatedSlider = '';
+
+for(var i = 0; i < sliderData.length; i++){
+   generatedSlider += Mustache.render(templateCarousel, sliderData[i])
+}
+
+var fullSliderItem = Mustache.render(templateSlider, {slider: generatedSlider});
+
+var results = document.getElementById('results');
+results.insertAdjacentHTML('beforeend', fullSliderItem);
+})();
+
+
 // Flickity Carousel
 var flkty = new Flickity('.main-carousel', {
     wrapAround: true,

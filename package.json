@@ -11,7 +11,8 @@
     "init:files": "touch README.md index.html sass/style.scss js/script.js",
     "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
     "init:normalize": "npm install normalize.css && copyfiles -f ./node_modules/normalize.css/normalize.css ./vendor/normalize/",
-    "init:flickity": "npm install flickity && copyfiles -f ./node_modules/normalize.css/normalize.css ./vendor/normalize/",
+    "init:flickity": "copyfiles -f ./node_modules/normalize.css/normalize.css ./vendor/normalize/",
+    "init:mustache": "copyfiles -f ./node_modules/mustache/mustache.js ./vendor/mustache/",
     "build": "npm-run-all build:* ",
     "build:clean": "rimraf css/*",
     "build:sass": "node-sass --output-style compressed -o css sass",
@@ -42,6 +43,7 @@
     "flickity": "^2.1.2",
     "minifier": "^0.8.1",
     "mkdirp": "^0.5.1",
+    "mustache": "^3.0.1",
     "normalize.css": "^8.0.1",
     "rimraf": "^2.6.2"
   },
