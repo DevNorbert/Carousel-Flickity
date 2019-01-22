@@ -1,3 +1,23 @@
+// Mustache 
+(function(){ 
+var templateSlider = document.getElementById('template-slider').innerHTML;
+var templateCarousel = document.getElementById('template-carousel').innerHTML;
+
+Mustache.parse(templateCarousel);
+
+var generatedSlider = '';
+
+for(var i = 0; i < sliderData.length; i++){
+   generatedSlider += Mustache.render(templateCarousel, sliderData[i])
+}
+
+var fullSliderItem = Mustache.render(templateSlider, {slider: generatedSlider});
+
+var results = document.getElementById('results');
+results.insertAdjacentHTML('beforeend', fullSliderItem);
+})();
+
+
 // Flickity Carousel
 var flkty = new Flickity('.main-carousel', {
     wrapAround: true,
@@ -22,25 +42,3 @@ flkty.on('scroll', function (progress) {
     progress = Math.max(0, Math.min(1, progress));
     progressBar.style.width = progress * 100 + '%';
 });
-
-// Mustache 
-(function(){ 
-var templateList = document.getElementById('template-product-list').innerHTML;
-var templateSlider = document.getElementById('template-slider').innerHTML;
-
-Mustache.parse(templateSlider);
-
-var generatedSlider = '';
-
-for(var i = 0; i < sliderData.length; i++){
-    console.log(sliderData);
-    generatedSlider += Mustache.render(templateSlider, sliderData[i])
-}
-//var generatedHello = Mustache.render(templateSlider, dataHello);
-var fullProductList = Mustache.render(templateList, {products: generatedSlider});
-
-
-var results = document.getElementById('results');
-	
-results.insertAdjacentHTML('beforeend', fullProductList);
-})();

@@ -15,49 +15,18 @@
 </head>
 
 <body>
-        <script id="template-product-list" type="x-tmpl-mustache">
-                <div class="main-carousel">
-                {{{products}}}
-                </div>
-            </script>
-   <!-- <div class="main-carousel">
-        <div class="carousel-cell" id="carousel-cell1" style="background-image: url('images/carousel-image1.jpg'); background-size: cover;">
-            <div class="container">
-                <h2>Slider 1</h2>
-            </div>
+    <script id="template-slider" type="x-tmpl-mustache">
+        <div class="main-carousel">
+            {{{slider}}}
         </div>
-
-        <div class="carousel-cell" id="carousel-cell2" style="background-image: url('images/carousel-image2.jpg'); background-size: cover;">
-            <div class="container">
-                <h2>Slider 2</h2>
-            </div>
-        </div>
-       
-        <div class="carousel-cell" id="carousel-cell3" style="background-image: url('images/carousel-image3.jpg'); background-size: cover;">
-            <div class="container">
-                <h2>Slider 3</h2>
-            </div>
-        </div>
-        
-        <div class="carousel-cell" id="carousel-cell4" style="background-image: url('images/carousel-image4.jpg'); background-size: cover;">
-            <div class="container">
-                <h2>Slider 4</h2>
-            </div>
-        </div>
-        
-        <div class="carousel-cell" id="carousel-cell5" style="background-image: url('images/carousel-image5.jpg'); background-size: cover;">
-            <div class="container">
-                <h2>Slider 5</h2>
-            </div>
-        </div>
-    </div> -->
-    <!-- Progress bar -->
-    <div class="progress-bar"></div>
+    </script>
+    <div id="results"></div>
     <!-- Button Reset -->
     <div class="button-reset">
         <button class="button" data-selector="#carousel-cell1">reset</button>
     </div>
-    <div id="results"></div>
+    <!-- Progress bar -->
+    <div class="progress-bar"></div>
     <!-- Objects Mustache -->
     <script>
         var sliderData = [
@@ -88,11 +57,11 @@
             }
         ]   
     </script>
-    <script id="template-slider" type="x-tmpl-mustache">
-            <div class="carousel-cell" id="carousel-cell1" style="background-image: url('images/carousel-image1.jpg'); background-size: cover;">
+    <script id="template-carousel" type="x-tmpl-mustache">
+        <div class="carousel-cell" id="carousel-cell1" style="background-image: url('{{ image }}'); background-size: cover;">
                 <div class="container">
                     <h2>{{ title }}</h2>
-                  
+                    {{ description }}
                 </div>
             </div>
 
