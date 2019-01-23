@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <!-- Slider -->
     <script id="template-slider" type="x-tmpl-mustache">
         <div class="main-carousel">
             {{{slider}}}
@@ -27,45 +28,17 @@
     </div>
     <!-- Progress bar -->
     <div class="progress-bar"></div>
+    <!-- Google Maps -->
+    <div id="map"></div>
+    <div id="info"></div>
     <!-- Objects Mustache -->
-    <script>
-        var sliderData = [
-            {
-                image: 'images/carousel-image1.jpg',
-                title: 'Slider 1',
-                description: 'Lorem ipsum.'
-            },
-            {
-                image: 'images/carousel-image2.jpg',
-                title: 'Slider 2',
-                description: 'Lorem ipsum.'
-            },
-            {
-                image: 'images/carousel-image3.jpg',
-                title: 'Slider 3',
-                description: 'Lorem ipsum.'
-            },
-            {
-                image: 'images/carousel-image4.jpg',
-                title: 'Slider 4',
-                description: 'Lorem ipsum.'
-            },
-            {
-                image: 'images/carousel-image5.jpg',
-                title: 'Slider 5',
-                description: 'Lorem ipsum.'
-            }
-        ]   
-    </script>
     <script id="template-carousel" type="x-tmpl-mustache">
-        <div class="carousel-cell" id="carousel-cell1" style="background-image: url('{{ image }}'); background-size: cover;">
-                <div class="container">
-                    <h2>{{ title }}</h2>
-                    {{ description }}
-                </div>
+        <div class="carousel-cell" id="{{ sliderID }}" style="background-image: url('{{ image }}'); background-size: cover;">
+            <div class="container">
+                <h2>{{ title }}</h2>
+                {{ description }}
             </div>
-
-           
+        </div>
     </script>
     <!-- Flickity Script -->
     <script src="vendor/flickity/flickity.pkgd.min.js"></script>
@@ -74,6 +47,8 @@
     <script src="vendor/mustache/mustache.js"></script>
     <!-- Main Script -->
     <script src="js/script.js"></script>
+    <!-- Google Maps -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJUTPydGAimC-c88u_WQ1kCTegpHY52eM&callback=initMap"></script>
 </body>
 
 </html>
