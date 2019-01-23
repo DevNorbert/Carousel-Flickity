@@ -21,7 +21,7 @@ var sliderData;
             description: 'Lorem ipsum.',
             coords: {
                 lat: -23.363,
-                lng: 131.044
+                lng: 121.044
             }
         },
         {
@@ -31,7 +31,7 @@ var sliderData;
             description: 'Lorem ipsum.',
             coords: {
                 lat: -24.363,
-                lng: 131.044
+                lng: 141.044
             }
         },
         {
@@ -41,7 +41,7 @@ var sliderData;
             description: 'Lorem ipsum.',
             coords: {
                 lat: -21.363,
-                lng: 131.044
+                lng: 148.044
             }
         },
         {
@@ -51,7 +51,7 @@ var sliderData;
             description: 'Lorem ipsum.',
             coords: {
                 lat: -26.363,
-                lng: 131.044
+                lng: 118.044
             }
         }
     ]
@@ -115,12 +115,6 @@ flkty.on('scroll', function (progress) {
                 position: sliderData[i].coords,
                 map: map
             });
-            marker.addListener('click', function () {
-                for (var x = 0; x < sliderData.length; x++) {
-                    window.location.hash = sliderData[x].sliderID;
-                };
-            });
         };
-
     }
 })();
