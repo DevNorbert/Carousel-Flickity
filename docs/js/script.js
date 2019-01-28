@@ -107,6 +107,25 @@ var infos = document.getElementById('info');
 
 // Google Maps
 window.initMap = function () {
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: sliderData[0].coords,
+    });
+    var marker = [];
+    for (var i = 0; i < sliderData.length; i++) {
+
+        marker[i] = new google.maps.Marker({
+            position: sliderData[i].coords,
+            map: map,
+            markerId: sliderData[i].sliderID,
+            id: i
+        });
+
+        marker[i].addListener('click', function () {
+            var markerId = '#' + marker[this.id].markerId;
+            flkty.selectCell(markerId);
+        });
+    };
 
     flkty.on('change', function (index) {
         console.log('Flickity change ' + index);
@@ -117,14 +136,14 @@ window.initMap = function () {
         });
         var marker = [];
         for (var i = 0; i < sliderData.length; i++) {
-    
+
             marker[i] = new google.maps.Marker({
                 position: sliderData[i].coords,
                 map: map,
                 markerId: sliderData[i].sliderID,
                 id: i
             });
-    
+
             marker[i].addListener('click', function () {
                 var markerId = '#' + marker[this.id].markerId;
                 flkty.selectCell(markerId);
