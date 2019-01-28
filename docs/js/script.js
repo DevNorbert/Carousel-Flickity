@@ -101,20 +101,34 @@ flkty.on('scroll', function (progress) {
     progress = Math.max(0, Math.min(1, progress));
     progressBar.style.width = progress * 100 + '%';
 });
+var infos = document.getElementById('info');
+
+
 
 // Google Maps
-(function () {
-    window.initMap = function () {
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
-            center: sliderData[0].coords,
-        });
+window.initMap = function () {
 
+    flkty.on('change', function (index) {
+        console.log('Flickity change ' + index);
+        index = sliderData[index].coords;
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 6,
+            center: index,
+        });
+        var marker = [];
         for (var i = 0; i < sliderData.length; i++) {
-            var marker = new google.maps.Marker({
+    
+            marker[i] = new google.maps.Marker({
                 position: sliderData[i].coords,
-                map: map
+                map: map,
+                markerId: sliderData[i].sliderID,
+                id: i
+            });
+    
+            marker[i].addListener('click', function () {
+                var markerId = '#' + marker[this.id].markerId;
+                flkty.selectCell(markerId);
             });
         };
-    }
-})();
+    });
+}
