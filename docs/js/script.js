@@ -1,7 +1,6 @@
 // Variables
 var sliderData;
 
-
 // Mustache 
 (function () {
     sliderData = [{
@@ -111,21 +110,7 @@ window.initMap = function () {
         zoom: 4,
         center: sliderData[0].coords,
     });
-    var marker = [];
-    for (var i = 0; i < sliderData.length; i++) {
-
-        marker[i] = new google.maps.Marker({
-            position: sliderData[i].coords,
-            map: map,
-            markerId: sliderData[i].sliderID,
-            id: i
-        });
-
-        marker[i].addListener('click', function () {
-            var markerId = '#' + marker[this.id].markerId;
-            flkty.selectCell(markerId);
-        });
-    };
+    generateMarker();
 
     flkty.on('change', function (index) {
         console.log('Flickity change ' + index);
@@ -134,6 +119,10 @@ window.initMap = function () {
             zoom: 6,
             center: index,
         });
+        generateMarker();
+    });
+
+    function generateMarker(){
         var marker = [];
         for (var i = 0; i < sliderData.length; i++) {
 
@@ -149,5 +138,5 @@ window.initMap = function () {
                 flkty.selectCell(markerId);
             });
         };
-    });
+    }
 }
