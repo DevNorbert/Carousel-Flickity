@@ -106,23 +106,21 @@ var infos = document.getElementById('info');
 
 // Google Maps
 window.initMap = function () {
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: sliderData[0].coords,
-    });
-    generateMarker();
+    generateMap(4, sliderData[0].coords);
 
     flkty.on('change', function (index) {
         console.log('Flickity change ' + index);
         index = sliderData[index].coords;
-        map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 6,
-            center: index,
-        });
-        generateMarker();
+
+        generateMap(6, index);
     });
 
-    function generateMarker(){
+    function generateMap(zoom, center) {
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: zoom,
+            center: center,
+        });
+
         var marker = [];
         for (var i = 0; i < sliderData.length; i++) {
 
